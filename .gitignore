@@ -1,0 +1,11 @@
+Adult_CD8Tcells_Gel_Elite_44.mgf
+.DS_Store
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
