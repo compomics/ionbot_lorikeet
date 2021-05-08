@@ -6,6 +6,7 @@ import datetime
 import time
 import re
 from pathlib import Path
+import http.server
 # import pyteomics
 from pyteomics import mgf, auxiliary
 
@@ -121,7 +122,7 @@ def get_spectrum_with_mgf(mgf_file, title):
     # remove last comma
     spectrum_s = spectrum_s[:-1]
     spectrum_s = spectrum_s + ']'
-    return spectrum, charge, pepmass
+    return spectrum_s, charge, pepmass
 
 # Parsing an MS2 spectrum (title) from an MGF file (mgf)
 # As spectrum files can be quite large, I use findstr to read the lines first
@@ -210,6 +211,8 @@ def main():
         for i,mod in enumerate(varmods_list):
             f.write("varMods[%i] = %s\n"%(i,mod))
         f.write('</script></body></html>\n')
+
+    subprocess.run(['python', '-m', 'http.server', '8083'])
 
 if __name__ == "__main__":
     main()
