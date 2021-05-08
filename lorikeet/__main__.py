@@ -7,7 +7,7 @@ import time
 import re
 from pathlib import Path
 # import pyteomics
-# from pyteomics import mgf, auxiliary
+from pyteomics import mgf, auxiliary
 
 
 
@@ -75,29 +75,25 @@ def read_file_in_chunks(file_object, chunk_size = 1073741824):
             break
         yield readfile
 
-def check_file(mgf, title):
+# read file with python using regex to search for TITLE
+def check_file(mgf_file, title):
     pattern = re.compile(title)
     str_to_return = ''
-    with open(Path(mgf), 'r') as mgf_read:
-        file_size = os.path.getsize(Path(mgf))
+    with open(Path(mgf_file), 'r') as mgf_file_read:
+        file_size = os.path.getsize(Path(mgf_file))
         # if file size bigger than 2GB read in chunks
         if file_size > 2147483648:
-            print('large file')
             start_program = time.perf_counter()
-            for chunk in read_file_in_chunks(mgf_read):
+            for chunk in read_file_in_chunks(mgf_file_read):
                 if not pattern.search(chunk) == None:
-                    print('found')
                     str_to_return = title
                     break
             stop_program = time.perf_counter()
             print(str(datetime.timedelta(seconds=(stop_program - start_program))))
         else: # read in entirety
-            print('not large file')
             start_program = time.perf_counter()
-            readfile = mgf_read.read()
+            readfile = mgf_file_read.read()
             if not pattern.search(readfile) == None:
-                print(pattern.search(readfile))
-                print('found')
                 str_to_return = title
             stop_program = time.perf_counter()
             print(str(datetime.timedelta(seconds=(stop_program - start_program))))
@@ -106,26 +102,47 @@ def check_file(mgf, title):
             exit()
         return str_to_return
 
+# Get spectrum, pepmass and charge using pyteomics IndexedMGF
+def get_spectrum_with_mgf(mgf_file, title):
+    # read mgf
+    f = mgf.IndexedMGF(mgf_file)
+
+    spectrum = f[title]
+    mz_array = f[title]['m/z array']
+    intensity_array = f[title]['intensity array']
+    pepmass = f[title]['params']['pepmass'][0]
+    charge = str(f[title]['params']['charge']).replace('+', '')
+
+    # parse m/z array and intensity array to create a data structure
+    # [['m/z', 'intensity']]
+    spectrum_s = '['
+    for x, y in np.nditer([mz_array, intensity_array]):
+        spectrum_s = spectrum_s + "[%s,%s]," % (x,y)
+    # remove last comma
+    spectrum_s = spectrum_s[:-1]
+    spectrum_s = spectrum_s + ']'
+    return spectrum, charge, pepmass
+
 # Parsing an MS2 spectrum (title) from an MGF file (mgf)
 # As spectrum files can be quite large, I use findstr to read the lines first
 # This only really speeds up things if the next query is on the same MGF file
 # TODO: We should think about how to optimize this for ionbot.cloud
-def get_spectrum(mgf, title):
+def get_spectrum(mgf_file, title):
     #TODO: We might want to put this loading outside
+
+    # Windows specific
     #line = subprocess.check_output(['findstr', '/N', title, mgf])
-    
-    #line = check_file(mgf, title)
-    
+
+    # Linux and macOS specific
+    # for macOS ggrep can be used, much faster, but no guarantee the user will have it installed
     start_program = time.perf_counter()
-    line = subprocess.check_output(['grep', '-n', 'TITLE='+title, mgf])
-    
+    line = subprocess.check_output(['grep', '-n', 'TITLE='+title, mgf_file])
     stop_program = time.perf_counter()
     print(str(datetime.timedelta(seconds=(stop_program - start_program))))
-    print(line)
     line = int(line.rstrip().decode("utf-8").split(":")[0])
     spectrum = "["
     while True:
-        c = linecache.getline(mgf, line)
+        c = linecache.getline(mgf_file, line)
         c = c.rstrip()
         if c == "": 
             line+=1
@@ -174,7 +191,7 @@ def main():
 
     deltas = read_deltas(unimod_file)
 
-    spectrum, charge, parent_mz = get_spectrum(mgf_file, title)
+    spectrum, charge, parent_mz = get_spectrum_with_mgf(mgf_file, title)
     if spectrum == "]":
         print("spectrum not found")
         exit()
@@ -183,7 +200,7 @@ def main():
     if modifications != "N":
         varmods_list = get_varmods(sequence, modifications, deltas)
 
-    with open(sequence+'.html','w') as f:
+    with open('lorikeet/'+sequence+'.html','w') as f:
         f.write(htmlpage+'\n')
         f.write('var sequence = "%s";\n'%sequence)
         f.write('var peaks = %s;\n'%spectrum)
@@ -193,7 +210,6 @@ def main():
         for i,mod in enumerate(varmods_list):
             f.write("varMods[%i] = %s\n"%(i,mod))
         f.write('</script></body></html>\n')
-
 
 if __name__ == "__main__":
     main()
