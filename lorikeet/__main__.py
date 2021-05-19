@@ -5,6 +5,7 @@ import subprocess, linecache
 import datetime
 import time
 import re
+import shutil
 from pathlib import Path
 import http.server
 # import pyteomics
@@ -20,18 +21,18 @@ htmlpage = '''
     
     <title>Lorikeet Spectrum Viewer</title>
     
-    <!--[if IE]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
+    <!--[if IE]><script language="javascript" type="text/javascript" src="/static/js/excanvas.min.js"></script><![endif]-->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="js/jquery.flot.js"></script>
-    <script type="text/javascript" src="js/jquery.flot.selection.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.flot.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.flot.selection.js"></script>
     
-    <script type="text/javascript" src="js/specview.js"></script>
-    <script type="text/javascript" src="js/peptide.js"></script>
-    <script type="text/javascript" src="js/aminoacid.js"></script>
-    <script type="text/javascript" src="js/ion.js"></script>
+    <script type="text/javascript" src="/static/js/specview.js"></script>
+    <script type="text/javascript" src="/static/js/peptide.js"></script>
+    <script type="text/javascript" src="/static/js/aminoacid.js"></script>
+    <script type="text/javascript" src="/static/js/ion.js"></script>
     
-    <link REL="stylesheet" TYPE="text/css" HREF="css/lorikeet.css">
+    <link REL="stylesheet" TYPE="text/css" HREF="/static/css/lorikeet.css">
     
 </head>
 
@@ -200,8 +201,8 @@ def main():
     varmods_list = []
     if modifications != "N":
         varmods_list = get_varmods(sequence, modifications, deltas)
-
-    with open('lorikeet/'+sequence+'.html','w') as f:
+    current_directory_path = os.getcwd()
+    with open(sequence+'.html','w') as f:
         f.write(htmlpage+'\n')
         f.write('var sequence = "%s";\n'%sequence)
         f.write('var peaks = %s;\n'%spectrum)
@@ -212,7 +213,15 @@ def main():
             f.write("varMods[%i] = %s\n"%(i,mod))
         f.write('</script></body></html>\n')
 
-    subprocess.run(['python', '-m', 'http.server', '8083'])
+    # move sequence file to templates
+    
+    print(current_directory_path)
+    move_to_path = Path(current_directory_path).joinpath('templates')
+    shutil.move(sequence+'.html', move_to_path)
+
+    #subprocess.run(['python', '-m', 'http.server', '8083'])
+
+    subprocess.run(['flask','run'])
 
 if __name__ == "__main__":
     main()
