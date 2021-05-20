@@ -10,6 +10,7 @@ lorikeet/__pycache__/
 # Distribution / packaging
 build/
 dist/
+dist.zip
 dist/cli/
 cli.spec
 .Python

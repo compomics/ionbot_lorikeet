@@ -23,6 +23,10 @@ In the top level directory **IONBOT_LORIKEET** run
 ```
 $ pyinstaller cli.py
 ```
+To use spec file to generate executable run
+```
+pyinstaller cli.spec
+```
 
 These will be created
 * A *.spec file
@@ -34,8 +38,14 @@ The executable is in `dist/cli` folder called `dist/cli/cli` for Linux and MacOS
 The executable file can be renamed.
 
 To run the executable
+macOS and Linux
 ```
 $ dist/cli/cli lorikeet/unimodptms.txt lorikeet/Velos005137.mgf "715.879455566406_6431.19139999998" EAWVIAWEIGTAPIEGEK N
+``` 
+
+Windows
+```
+$ dist/cli/cli.exe lorikeet/unimodptms.txt lorikeet/Velos005137.mgf "715.879455566406_6431.19139999998" EAWVIAWEIGTAPIEGEK N
 ``` 
 
 To run the application to debug

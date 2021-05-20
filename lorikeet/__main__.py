@@ -9,9 +9,19 @@ import shutil
 from pathlib import Path
 import http.server
 # import pyteomics
+
 from pyteomics import mgf, auxiliary
-
-
+template_folder = ''
+if getattr(sys, 'frozen', False):
+    print('bundled')
+    template_folder = os.path.join(sys._MEIPASS, 'templates')
+    # static_folder = os.path.join(sys._MEIPASS, 'static')
+    if not os.path.exists(template_folder):
+        os.makedirs(template_folder)
+else:
+    template_folder = os.getcwd().join('templates')
+print('main')
+print(template_folder)
 
 htmlpage = '''
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -70,40 +80,6 @@ def read_deltas(unimod_file):
             deltas[unimod] = float(l[1])
     return deltas
 
-def read_file_in_chunks(file_object, chunk_size = 1073741824):
-    while True:
-        readfile = file_object.read(chunk_size)
-        if not readfile:
-            break
-        yield readfile
-
-# read file with python using regex to search for TITLE
-def check_file(mgf_file, title):
-    pattern = re.compile(title)
-    str_to_return = ''
-    with open(Path(mgf_file), 'r') as mgf_file_read:
-        file_size = os.path.getsize(Path(mgf_file))
-        # if file size bigger than 2GB read in chunks
-        if file_size > 2147483648:
-            start_program = time.perf_counter()
-            for chunk in read_file_in_chunks(mgf_file_read):
-                if not pattern.search(chunk) == None:
-                    str_to_return = title
-                    break
-            stop_program = time.perf_counter()
-            print(str(datetime.timedelta(seconds=(stop_program - start_program))))
-        else: # read in entirety
-            start_program = time.perf_counter()
-            readfile = mgf_file_read.read()
-            if not pattern.search(readfile) == None:
-                str_to_return = title
-            stop_program = time.perf_counter()
-            print(str(datetime.timedelta(seconds=(stop_program - start_program))))
-        if len(str_to_return) == 0:
-            print('No spectrum title matching', title)
-            exit()
-        return str_to_return
-
 # Get spectrum, pepmass and charge using pyteomics IndexedMGF
 def get_spectrum_with_mgf(mgf_file, title):
     # read mgf
@@ -137,10 +113,7 @@ def get_spectrum(mgf_file, title):
 
     # Linux and macOS specific
     # for macOS ggrep can be used, much faster, but no guarantee the user will have it installed
-    start_program = time.perf_counter()
     line = subprocess.check_output(['grep', '-n', 'TITLE='+title, mgf_file])
-    stop_program = time.perf_counter()
-    print(str(datetime.timedelta(seconds=(stop_program - start_program))))
     line = int(line.rstrip().decode("utf-8").split(":")[0])
     spectrum = "["
     while True:
@@ -182,6 +155,7 @@ def get_varmods(peptide, modifications, deltas):
         unimod = int(tmp[i+1].split("]")[0][1:])
         mods.append("{index: %i, modMass: %f, aminoAcid: '%s'}"%(mod_pos,deltas[unimod],peptide[mod_pos-1]))
     return mods
+
 def main():
     unimod_file     = sys.argv[1]
     mgf_file        = sys.argv[2]
@@ -201,8 +175,8 @@ def main():
     varmods_list = []
     if modifications != "N":
         varmods_list = get_varmods(sequence, modifications, deltas)
-    current_directory_path = os.getcwd()
-    with open(sequence+'.html','w') as f:
+    
+    with open(template_folder.join(sequence+'.html'),'w') as f:
         f.write(htmlpage+'\n')
         f.write('var sequence = "%s";\n'%sequence)
         f.write('var peaks = %s;\n'%spectrum)
@@ -214,14 +188,11 @@ def main():
         f.write('</script></body></html>\n')
 
     # move sequence file to templates
-    
-    print(current_directory_path)
-    move_to_path = Path(current_directory_path).joinpath('templates')
-    shutil.move(sequence+'.html', move_to_path)
+    # shutil.move(sequence+'.html', str(template_folder) + '/' + sequence+'.html')
 
     #subprocess.run(['python', '-m', 'http.server', '8083'])
 
-    subprocess.run(['flask','run'])
+    #subprocess.run(['flask','run'])
 
 if __name__ == "__main__":
     main()
