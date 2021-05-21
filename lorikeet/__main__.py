@@ -20,8 +20,6 @@ if getattr(sys, 'frozen', False):
         os.makedirs(template_folder)
 else:
     template_folder = os.path.join(os.getcwd(), 'templates')
-print(os.getcwd())
-print('main')
 print(template_folder)
 
 htmlpage = '''
@@ -176,8 +174,7 @@ def main():
     varmods_list = []
     if modifications != "N":
         varmods_list = get_varmods(sequence, modifications, deltas)
-    # print(template_folder)
-    # print(template_folder.join(sequence+'.html'))
+    
     with open(os.path.join(template_folder,sequence+'.html'),'w') as f:
         f.write(htmlpage+'\n')
         f.write('var sequence = "%s";\n'%sequence)
@@ -188,13 +185,6 @@ def main():
         for i,mod in enumerate(varmods_list):
             f.write("varMods[%i] = %s\n"%(i,mod))
         f.write('</script></body></html>\n')
-
-    # move sequence file to templates
-    # shutil.move(sequence+'.html', str(template_folder) + '/' + sequence+'.html')
-
-    #subprocess.run(['python', '-m', 'http.server', '8083'])
-
-    #subprocess.run(['flask','run'])
 
 if __name__ == "__main__":
     main()
