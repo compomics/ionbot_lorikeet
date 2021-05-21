@@ -19,7 +19,8 @@ if getattr(sys, 'frozen', False):
     if not os.path.exists(template_folder):
         os.makedirs(template_folder)
 else:
-    template_folder = os.getcwd().join('templates')
+    template_folder = os.path.join(os.getcwd(), 'templates')
+print(os.getcwd())
 print('main')
 print(template_folder)
 
@@ -175,8 +176,9 @@ def main():
     varmods_list = []
     if modifications != "N":
         varmods_list = get_varmods(sequence, modifications, deltas)
-    
-    with open(template_folder.join(sequence+'.html'),'w') as f:
+    # print(template_folder)
+    # print(template_folder.join(sequence+'.html'))
+    with open(os.path.join(template_folder,sequence+'.html'),'w') as f:
         f.write(htmlpage+'\n')
         f.write('var sequence = "%s";\n'%sequence)
         f.write('var peaks = %s;\n'%spectrum)
