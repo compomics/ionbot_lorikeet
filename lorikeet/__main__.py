@@ -2,25 +2,18 @@ import sys
 import os
 import numpy as np
 import subprocess, linecache
-import datetime
-import time
-import re
-import shutil
-from pathlib import Path
-import http.server
-# import pyteomics
 
+from pathlib import Path
 from pyteomics import mgf, auxiliary
+
 template_folder = ''
 if getattr(sys, 'frozen', False):
     print('bundled')
     template_folder = os.path.join(sys._MEIPASS, 'templates')
-    # static_folder = os.path.join(sys._MEIPASS, 'static')
     if not os.path.exists(template_folder):
         os.makedirs(template_folder)
 else:
     template_folder = os.path.join(os.getcwd(), 'templates')
-print(template_folder)
 
 htmlpage = '''
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -166,25 +159,25 @@ def main():
 
     deltas = read_deltas(unimod_file)
 
-    spectrum, charge, parent_mz = get_spectrum_with_mgf(mgf_file, title)
-    if spectrum == "]":
-        print("spectrum not found")
-        exit()
+    #spectrum, charge, parent_mz = get_spectrum_with_mgf(mgf_file, title)
+    # if spectrum == "]":
+    #     print("spectrum not found")
+    #     exit()
 
     varmods_list = []
     if modifications != "N":
         varmods_list = get_varmods(sequence, modifications, deltas)
     
-    with open(os.path.join(template_folder,sequence+'.html'),'w') as f:
-        f.write(htmlpage+'\n')
-        f.write('var sequence = "%s";\n'%sequence)
-        f.write('var peaks = %s;\n'%spectrum)
-        f.write('var charge = %s;\n'%charge)
-        f.write('var precursorMz = %s;\n'%parent_mz)
-        f.write('var varMods = [];\n')
-        for i,mod in enumerate(varmods_list):
-            f.write("varMods[%i] = %s\n"%(i,mod))
-        f.write('</script></body></html>\n')
+    # with open(os.path.join(template_folder,sequence+'.html'),'w') as f:
+    #     f.write(htmlpage+'\n')
+    #     f.write('var sequence = "%s";\n'%sequence)
+    #     f.write('var peaks = %s;\n'%spectrum)
+    #     f.write('var charge = %s;\n'%charge)
+    #     f.write('var precursorMz = %s;\n'%parent_mz)
+    #     f.write('var varMods = [];\n')
+    #     for i,mod in enumerate(varmods_list):
+    #         f.write("varMods[%i] = %s\n"%(i,mod))
+    #     f.write('</script></body></html>\n')
 
 if __name__ == "__main__":
     main()
