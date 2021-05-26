@@ -17,7 +17,7 @@ def get_spectrum_with_mgf(mgf_file, title):
     # [['m/z', 'intensity']]
     spectrum_s = []
     for x, y in np.nditer([mz_array, intensity_array]):
-        spectrum_s.append(float(x), float(y))
+        spectrum_s.append([float(x), float(y)])
     return spectrum_s, charge, pepmass
 
 # Here the "matched_peptide" and "modifications" columns
