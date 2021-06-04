@@ -43,7 +43,7 @@
         var peaks = {{ spectrum }}
         var charge = {{ charge | tojson }}
         var precursorMz = {{ parent_mz | tojson }}
-        var varMods = []
+        var varMods = {{ mods | safe }}
         //for i,mod in enumerate(varmods_list):
             //f.write("varMods[%i] = %s\n"%(i,mod))
         
