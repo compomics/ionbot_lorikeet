@@ -39,7 +39,7 @@ def setfolder():
    if request.method == 'POST':
       f = request.form['folder']
       mgf_file_dir = f
-      return f
+      return render_template('landrick copy.html',response=f)
 
 @app.route("/sequence/<name>")
 def getSpectrumBySequence(name=None):

@@ -60,8 +60,16 @@
                 <div class="row mt-5 align-items-center">
                     <div class="col-lg-7 col-md-7">
                         <div class="title-heading me-lg-4">
-                            <p>To connect Tableau Reader to your ionbot results,<br>please enter the folder that contains your spectrum file(s),<br>
-                            and click Set Folder.</p>
+                            <p>To connect ionbot.tableau to your ionbot Tableau result file,<br><b>please enter the folder that contains your spectrum file(s)</b>,<br>
+                            and then click <b>Set Folder</b>.</p>
+
+                            {% if response %}
+                            <br>
+                            <div class="alert alert-success" role="alert">
+                                Selected Folder: {{ response }}
+                            </div>
+                            {% endif %}
+        
                             <form action = "http://localhost:5000/setfolder" method = "POST" 
                             enctype = "multipart/form-data">
                             <input name = "folder" class="form-control"/>
@@ -70,7 +78,6 @@
                          </form> 
                         </div>
                     </div><!--end col-->
-
                     <div class="col-lg-5 col-md-5 mt-4 pt-2 mt-sm-0 pt-sm-0">
                         <img src="/static/landrick/images/illustrator/Startup_SVG.svg" alt="">
                     </div><!--end col-->
