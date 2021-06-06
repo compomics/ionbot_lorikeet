@@ -1,9 +1,11 @@
 import sys
 import os
-from lorikeet.__main__ import main
+#from lorikeet.__main__ import main
 from lorikeet.data_parser import get_spectrum_with_mgf, get_varmods
-from flask import Flask
+from flask import Flask, request
 from flask.templating import render_template
+
+mgf_file_dir = ""
 
 def get_varmods(sequence, modifications):
     if modifications == "0|":
@@ -31,6 +33,14 @@ def before_first_request():
 def main_route():
     return render_template('landrick copy.html')
 
+@app.route('/setfolder', methods = ['GET', 'POST'])
+def setfolder():
+   global mgf_file_dir
+   if request.method == 'POST':
+      f = request.form['folder']
+      mgf_file_dir = f
+      return f
+
 @app.route("/sequence/<name>")
 def getSpectrumBySequence(name=None):
     print(name + '.html')
@@ -38,8 +48,9 @@ def getSpectrumBySequence(name=None):
 
 @app.route("/mgf/<mgf_name>/spectrum/<spectrum_title>/sequence/<sequence>/mods/<mods>")
 def getSpectrum(mgf_name=None, sequence=None, spectrum_title=None, mods=None):
-    print(sys.argv[1])
-    mgf_file_dir = sys.argv[1]
+    global mgf_file_dir
+    if mgf_file_dir == "":
+        return "no mgf specified"
     modifications = get_varmods(sequence, mods)
     spectrum, charge, parent_mz = get_spectrum_with_mgf(os.path.join(mgf_file_dir,mgf_name), spectrum_title)
     return render_template('spectrum_viewer.html',
@@ -52,6 +63,6 @@ def getSpectrum(mgf_name=None, sequence=None, spectrum_title=None, mods=None):
         )
 
 if __name__ == '__main__':
-    main()
+    #main()
     app.run()
 
