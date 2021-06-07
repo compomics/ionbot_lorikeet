@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Landrick - Saas & Software Landing Page Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Premium Bootstrap 5 Landing Page Template" />
+        <meta name="keywords" content="Saas, Software, multi-uses, HTML, Clean, Modern" />
+        <meta name="author" content="Shreethemes" />
+        <meta name="email" content="support@shreethemes.in" />
+        <meta name="website" content="https://shreethemes.in" />
+        <meta name="Version" content="v3.2.0" />
+        <!-- favicon -->
+        <link rel="shortcut icon" href="images/favicon.ico">
+        <!-- Bootstrap -->
+        <link href="/static/landrick/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- Icons -->
+        <link href="/static/landrick/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+        <!-- Slider -->
+        <link rel="stylesheet" href="/static/landrick/css/tiny-slider.css"/>
+        <!-- Main Css -->
+        <link href="/static/landrick/css/style.css" rel="stylesheet" type="text/css" id="theme-opt" />
+        <link href="/static/landrick/css/colors/default.css" rel="stylesheet" id="color-opt">
+    </head>
+
+    <body>
+        <!-- Loader -->
+        <!-- <div id="preloader">
+            <div id="status">
+                <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                </div>
+            </div>
+        </div> -->
+        <!-- Loader -->
+        
+        <!-- Navbar STart -->
+        <header id="topnav" class="defaultscroll sticky">
+            <div class="container">
+                <nav class="navbar navbar-expand-md">
+                    <div class="container-fluid">
+                        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                            <ul class="navbar-nav me-auto" style="font-size:18px;font-weight:400">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{{ url_for('tableau') }}">Tableau</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for('landing') }}">Landing</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for('documentation') }}">Help</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mx-auto order-0">
+                            <a class="logo" href="/static/images/ionbot_nb.png" style="margin-right:0px;">
+                                <img src="/static/images/ionbot_nb.png" height="96" class="logo-light-mode" alt="">
+                            </a>
+                        </div>
+                        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item">
+                                    <div class="buy-button">
+                                        <a href="https://1.envato.market/4n73n" target="_blank" class="btn btn-primary">Search Now</a>
+                                    </div><!--end login button-->
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div> 
+        </header><!--end header-->
+        <!-- Navbar End -->
+        <section class="section">
+            <div class="container">
+
+        <div class="p-4 border-bottom">
+            <h5 class="title mb-0" style="text-align: center;"> [documentation] </h5>
+        </div>
+
+        <div class="p-4">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="nav nav-pills nav-justified flex-column flex-sm-row rounded" id="pills-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link rounded active" id="pills-cloud-tab" data-bs-toggle="pill" href="#pills-cloud" role="tab" aria-controls="pills-cloud" aria-selected="true">
+                                <div class="text-center py-2">
+                                    <h6 class="mb-0">Search Form</h6>
+                                </div>
+                            </a><!--end nav link-->
+                        </li><!--end nav item-->
+                        
+                        <li class="nav-item">
+                            <a class="nav-link rounded" id="pills-smart-tab" data-bs-toggle="pill" href="#pills-smart" role="tab" aria-controls="pills-smart" aria-selected="false">
+                                <div class="text-center py-2">
+                                    <h6 class="mb-0">Result Files</h6>
+                                </div>
+                            </a><!--end nav link-->
+                        </li><!--end nav item-->
+                        
+                        <li class="nav-item">
+                            <a class="nav-link rounded" id="pills-apps-tab" data-bs-toggle="pill" href="#pills-apps" role="tab" aria-controls="pills-apps" aria-selected="false">
+                                <div class="text-center py-2">
+                                    <h6 class="mb-0">ionbot.tableau</h6>
+                                </div>
+                            </a><!--end nav link-->
+                        </li><!--end nav item-->
+                    </ul><!--end nav pills-->
+                </div><!--end col-->
+            </div><!--end row-->
+
+            <div class="row pt-2">
+                <div class="col-12">
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade active show" id="pills-cloud" role="tabpanel" aria-labelledby="pills-cloud-tab">                           
+                                        <h3>Target peptide database</h3>
+                                        <p>A limited set of the most widely studied proteomes can be selected to search the MS2 spectra against. These were obtained from the UniProtKB knowledgebase and processed with an silico tryptic digest, that allows for two missed cleavages, to create the target peptide database. The decoy peptide database was constructed similarly from the reversed proteins.The option to upload your own proteomes will be made available soon.</p>
+                                        <h3>MS2 spectrum files</h3>
+                                        <p>MS2 spectrum files should be in the Mascot MGF format. We recommend converting your RAW files with the freely available msconvert in the ProteoWizard library. Only MS2 peak picking needs to be selected, no other pre-processing should be performed. </p>
+                                        <p>For protein inference to make sense, all spectra obtained from one sample should be in one spectrum file. Ionbot analyses each spectrum file separately.</p>
+                                        <p>We recommend uploading spectrum files as a compressed package using Zip. </p>
+                                        <h3>Search settings</h3>
+                                        <p>The ionbot search requires you to set the following settings:</p>
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <p>Project name</p>
+                                            </div>
+                                            <div class="col-8">
+                                                <p>This name groups your spectrum files and can be used to access the ionbot search results.</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <p>Protein database</p>
+                                            </div>
+                                            <div class="col-8">
+                                                <p>The target peptide database to search against.</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <p>Enzyme</p>
+                                            </div>
+                                            <div class="col-8">
+                                                <p>The in silico digest pattern. Currently, only cleaving after lysine or arginine (K|R) is supported.</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <p>Fragmentation method</p>
+                                            </div>
+                                            <div class="col-8">
+                                                <p>The MS2 fragmentation method applied to generate the spectra. Currently, only HCD is supported.</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <p>MS Precursor error tolerance (ppm)</p>
+                                            </div>
+                                            <div class="col-8">
+                                                <p>The MS1 Precursor error tolerance in ppm. We recommend leaving this to the default 20ppm.</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <p>Modifications as fixed</p>
+                                            </div>
+                                            <div class="col-8">
+                                                <p>A list of known fixed protein modifications.</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <p>Modifications as variable</p>
+                                            </div>
+                                            <div class="col-8">
+                                                <p>A list of expected (variable) modifications. A maximum of four different modifications can be selected. Each PSM can have at most two expected modifications for the list, not including the fixed modifications.</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <p>Enable Extended Modification Search</p>
+                                            </div>
+                                            <div class="col-8">
+                                                <p>If selected, an open modification search is performed that can match peptides that, next to the fixed and expected modifications,has one more unexpected modification selected from a list of known modifications, or
+                                                    has a mutation, or
+                                                    is semi-tryptic at the N-terminal.</p>
+                                            </div>
+                                        </div>
+                        </div><!--end teb pane-->
+                        
+                        <div class="tab-pane fade" id="pills-smart" role="tabpanel" aria-labelledby="pills-smart-tab">
+<h3>Search result files</h3>
+    <p>The PSM result files contain all first-ranked and co-eluting lower ranked PSMs that passed the 5% FDR threshold computed using a reversed decoy database.To select a more confident set of PSMs the ‘q-value’ or ‘PEP’ columns (see below) can be used for further filtering based on statistical confidence.
+        For PSMs, three results files are written:</p>
+    <ul class="mb-2">
+        <li>ionbot.first.csv: contains all first-ranked PSMs</li>
+        <li>ionbot.lower.csv: contains all lower ranked PSMs with an edit distance of 3 or more to the first-ranked PSM</li>
+        <li>ionbot.lower.similar.csv: contains all lower ranked PSMs with an edit distance of 1 or 2 to the first-ranked PSM</li>
+    </ul>
+    <p>We refer to the ionbot paper for a detailed description of the lower ranked PSMs.</p>
+    <p>Additional PSM information is written to an ‘ionbot.features.csv’ result file (see below).</p>
+    <p>Proteins inference is performed using the ‘best-scoring-peptide-for-each-protein’ implemented in Percolator 3.0 1. This approach groups similar proteins inprotein groups to reduce the effect of peptides shared between proteins. The protein result files contain all protein groups that passed the 1% protein FDR threshold.
+        Three protein result files are written:</p>
+    <ul class="mb-2">
+        <li>ionbot.first.proteins.csv: contains all protein groups computed from the PSMs in ‘ionbot.first.csv’ that passed the 1% FDR threshold</li>
+        <li>ionbot.coeluting.proteins.csv: contains all protein groups computed from the PSMs in ‘ionbot.first.csv’ and ‘ionbot.lower.csv’ that passed the 1% FDR threshold</li>
+    </ul>
+    <br>
+    <h5>PSM result files</h5>
+    <div class="row">
+        <div class="col-3">
+            <p>ionbot_match_id</p>
+        </div>
+        <div class="col-8">
+            <p>An ionbot PSM identifier used to link the different result files together.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>spectrum_title</p>
+        </div>
+        <div class="col-8">
+            <p>The MS2 spectrum title (identifier) in the spectrum file.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>precursor_mass</p>
+        </div>
+        <div class="col-8">
+            <p>The observed MS1 precursor mass.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>peptide_mass</p>
+        </div>
+        <div class="col-8">
+            <p>The computed peptide match.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>observed_rentention_time</p>
+        </div>
+        <div class="col-8">
+            <p>The observed LC retention time</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>charge</p>
+        </div>
+        <div class="col-8">
+            <p>The matched charge state.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>database_peptide</p>
+        </div>
+        <div class="col-8">
+            <p>The peptide sequence as it was found in the target database.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>matched_peptide</p>
+        </div>
+        <div class="col-8">
+            <p>The actual peptide sequence.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>modifications</p>
+        </div>
+        <div class="col-8">
+            <p>A list of sequence modifications that creates the matched peptidoform (matched_peptide) from the peptide in database_peptide. Each modification is separated by ‘|’ and is represented as X|Y, i.e. two modifications are written as X|Y|X|Y.</p>
+            <p>Y can be a fixed, expected, or unexpected modification with X the position of the modification in the peptide sequence. Positions start at 1 with 0 and -1 indicating a N-terminal and C-terminal modification respectively. </p>
+            <p>If the modification was not observed in MS2, then X is set to ‘x’. If Y is set to ‘semi-triptic, then X is the number of N-terminal amino acids that are removed to form the semi-tryptic peptide match.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>corrected_retention_time</p>
+        </div>
+        <div class="col-8">
+            <p>The peptide grouping corrected observed LC retention time. This value is used to compute RT-pred-error feature in the ionbot PSM scoring function.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>unexpected_modification</p>
+        </div>
+        <div class="col-8">
+            <p>The unexpected modification in the PSM, if any.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>database</p>
+        </div>
+        <div class="col-8">
+            <p>This is ‘T’ for a match against the target database and ‘D’ for a match against the decoy database.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>psm_score</p>
+        </div>
+        <div class="col-8">
+            <p>The ionbot PSM score. These are the distances to the hyperplane computed by the Support Vector Machine method.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>q-value</p>
+        </div>
+        <div class="col-8">
+            <p>The PSM q-value computed from the PSM scores.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>PEP</p>
+        </div>
+        <div class="col-8">
+            <p>The PSM posterior error probability computed from the PSM scores.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>proteins</p>
+        </div>
+        <div class="col-8">
+            <p>The list of proteins that match the peptide in database_peptide, separated by ‘||’.</p>
+        </div>
+    </div>
+    <h5>Features result file</h5>
+    <div class="row">
+        <div class="col-3">
+            <p>ionbot_match_id</p>
+        </div>
+        <div class="col-8">
+            <p>An ionbot PSM identifier used to link the different result files together.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>by-count</p>
+        </div>
+        <div class="col-8">
+            <p>The number of b- and y-ions matched.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>all-count</p>
+        </div>
+        <div class="col-8">
+            <p>The number of X-ions matched with X in [a,b,b-H2O,b-NH3,c,x,y,y-H2O,z], considering charge 1+ and 2+.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>by-explained</p>
+        </div>
+        <div class="col-8">
+            <p>The intensity explained by the b- and y-ions matched.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>all-explained</p>
+        </div>
+        <div class="col-8">
+            <p>The intensity explained by the X-ions matched with X in [a,b,b-H2O,b-NH3,c,x,y,y-H2O,z], considering charge 1+ and 2+.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>by-intensity-pattern-correlation</p>
+        </div>
+        <div class="col-8">
+            <p>The Pearson correlation between the observed and MS2PIP predicted b- and y-ion peak intensities.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>predicted_retention_time</p>
+        </div>
+        <div class="col-8">
+            <p>The DeepLC calibrated retention time prediction.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>rt-pred-error</p>
+        </div>
+        <div class="col-8">
+            <p>The absolute value of the difference between the predicted and the corrected observed retention time.</p>
+        </div>
+    </div>
+    <h5>Protein result files</h5>
+    <div class="row">
+        <div class="col-3">
+            <p>protein_group</p>
+        </div>
+        <div class="col-8">
+            <p>Protein groups are named after the proteins it contains (protein names are separated by ‘__’).</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>protein_group_q-value</p>
+        </div>
+        <div class="col-8">
+            <p>The protein group q-value computed from the best PSM score for each protein group.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>protein_group_PEP</p>
+        </div>
+        <div class="col-8">
+            <p>The protein group posterior error probability computed from the best PSM score for each protein group.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>protein</p>
+        </div>
+        <div class="col-8">
+            <p>The protein name.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>position_in_protein</p>
+        </div>
+        <div class="col-3">
+            <p>The location of the peptide match in the protein (position of first amino acid in protein is 1).</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>ionbot_match_id</p>
+        </div>
+        <div class="col-3">
+            <p>An ionbot PSM identifier used to link the different result files together.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>is_shared_peptide</p>
+        </div>
+        <div class="col-3">
+            <p>This is ‘True’ if the matched peptide is shared between different protein groups, ‘False’ otherwise.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>protein_length</p>
+        </div>
+        <div class="col-3">
+            <p>The length of the protein.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>protein_description</p>
+        </div>
+        <div class="col-3">
+            <p>The protein description.</p>
+        </div>
+    </div>
+
+                        </div><!--end teb pane-->
+
+                        <div class="tab-pane fade" id="pills-apps" role="tabpanel" aria-labelledby="pills-apps-tab">
+                            <p class="text-muted mb-0">You can combine all the Landrick templates into a single one, you can take a component from the Application theme and use it in the Website.</p>                       
+                        </div><!--end teb pane-->
+                    </div><!--end tab content-->
+                </div><!--end col-->
+            </div><!--end row-->
+        </div>
+    </div>
+
+</section>
+
+        <!-- FAQ n Contact Start -->
+        <section class="section bg-light">
+            <div class="container">
+                
+                <div class="row my-md-5 pt-md-3 my-4 pt-2 pb-lg-4 justify-content-center">
+                    <div class="col-12 text-center">
+                        <div class="section-title">
+                            <h4 class="title mb-4">Have Question ? Get in touch!</h4>
+                            <p class="text-muted para-desc mx-auto">Start working with <span class="text-primary fw-bold">Landrick</span> that can provide everything you need to generate awareness, drive traffic, connect.</p>
+                            <a href="page-contact-two.html" class="btn btn-primary mt-4"><i class="uil uil-phone"></i> Contact us</a>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <div class="position-relative">
+            <div class="shape overflow-hidden text-footer">
+                <svg viewBox="0 0 2880 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M720 125L2160 0H2880V250H0V125H720Z" fill="currentColor"></path>
+                </svg>
+            </div>
+        </div>
+        <!-- FAQ n Contact End -->
+
+        <!-- Footer Start -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
+                        <a href="#" class="logo-footer">
+                            <img src="images/logo-light.png" height="24" alt="">
+                        </a>
+                        <p class="mt-4">Start working with Landrick that can provide everything you need to generate awareness, drive traffic, connect.</p>
+                        <ul class="list-unstyled social-icon foot-social-icon mb-0 mt-4">
+                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="facebook" class="fea icon-sm fea-social"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="instagram" class="fea icon-sm fea-social"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="twitter" class="fea icon-sm fea-social"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="linkedin" class="fea icon-sm fea-social"></i></a></li>
+                        </ul><!--end icon-->
+                    </div><!--end col-->
+                    
+                    <div class="col-lg-2 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                        <h5 class="text-light footer-head">Company</h5>
+                        <ul class="list-unstyled footer-list mt-4">
+                            <li><a href="page-aboutus.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> About us</a></li>
+                            <li><a href="page-services.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Services</a></li>
+                            <li><a href="page-team.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Team</a></li>
+                            <li><a href="page-pricing.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Pricing</a></li>
+                            <li><a href="portfolio-modern-three.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Project</a></li>
+                            <li><a href="page-jobs.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Careers</a></li>
+                            <li><a href="page-blog-grid.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Blog</a></li>
+                            <li><a href="auth-cover-login.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Login</a></li>
+                        </ul>
+                    </div><!--end col-->
+                    
+                    <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                        <h5 class="text-light footer-head">Usefull Links</h5>
+                        <ul class="list-unstyled footer-list mt-4">
+                            <li><a href="page-terms.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Terms of Services</a></li>
+                            <li><a href="page-privacy.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Privacy Policy</a></li>
+                            <li><a href="documentation.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Documentation</a></li>
+                            <li><a href="changelog.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Changelog</a></li>
+                            <li><a href="components.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Components</a></li>
+                        </ul>
+                    </div><!--end col-->
+
+                    <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                        <h5 class="text-light footer-head">Newsletter</h5>
+                        <p class="mt-4">Sign up and receive the latest tips via email.</p>
+                        <form>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="foot-subscribe mb-3">
+                                        <label class="form-label">Write your email <span class="text-danger">*</span></label>
+                                        <div class="form-icon position-relative">
+                                            <i data-feather="mail" class="fea icon-sm icons"></i>
+                                            <input type="email" name="email" id="emailsubscribe" class="form-control ps-5 rounded" placeholder="Your email : " required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="d-grid">
+                                        <input type="submit" id="submitsubscribe" name="send" class="btn btn-soft-primary" value="Subscribe">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </footer><!--end footer-->
+        <footer class="footer footer-bar">
+            <div class="container text-center">
+                <div class="row align-items-center">
+                    <div class="col-sm-6">
+                        <div class="text-sm-start">
+                            <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> Landrick. Design with <i class="mdi mdi-heart text-danger"></i> by <a href="https://shreethemes.in/" target="_blank" class="text-reset">Shreethemes</a>.</p>
+                        </div>
+                    </div><!--end col-->
+
+                    <div class="col-sm-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                        <ul class="list-unstyled text-sm-end mb-0">
+                            <li class="list-inline-item"><a href="javascript:void(0)"><img src="images/payments/american-ex.png" class="avatar avatar-ex-sm" title="American Express" alt=""></a></li>
+                            <li class="list-inline-item"><a href="javascript:void(0)"><img src="images/payments/discover.png" class="avatar avatar-ex-sm" title="Discover" alt=""></a></li>
+                            <li class="list-inline-item"><a href="javascript:void(0)"><img src="images/payments/master-card.png" class="avatar avatar-ex-sm" title="Master Card" alt=""></a></li>
+                            <li class="list-inline-item"><a href="javascript:void(0)"><img src="images/payments/paypal.png" class="avatar avatar-ex-sm" title="Paypal" alt=""></a></li>
+                            <li class="list-inline-item"><a href="javascript:void(0)"><img src="images/payments/visa.png" class="avatar avatar-ex-sm" title="Visa" alt=""></a></li>
+                        </ul>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </footer><!--end footer-->
+        <!-- Footer End -->
+
+        <!-- Back to top -->
+        <a href="#" onclick="topFunction()" id="back-to-top" class="btn btn-icon btn-primary back-to-top"><i data-feather="arrow-up" class="icons"></i></a>
+        <!-- Back to top -->
+
+        
+
+        <!-- javascript -->
+        <script src="/static/landrick/js/bootstrap.bundle.min.js"></script>
+        <!-- SLIDER -->
+        <script src="/static/landrick/js/tiny-slider.js "></script>
+        <!-- Icons -->
+        <script src="/static/landrick/js/feather.min.js"></script>
+        <!-- Main Js -->
+        <script src="/static/landrick/js/plugins.init.js"></script><!--Note: All init js like tiny slider, counter, countdown, maintenance, lightbox, gallery, swiper slider, aos animation etc.-->
+        <script src="/static/landrick/js/app.js"></script><!--Note: All important javascript like page loader, menu, sticky menu, menu-toggler, one page menu etc. -->
+    </body>
+</html>

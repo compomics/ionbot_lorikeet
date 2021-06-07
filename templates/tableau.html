@@ -42,51 +42,73 @@
             <div class="container">
                 <nav class="navbar navbar-expand-md">
                     <div class="container-fluid">
+                        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                            <ul class="navbar-nav me-auto" style="font-size:18px;font-weight:400">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{{ url_for('tableau') }}">Tableau</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for('landing') }}">Landing</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for('documentation') }}">Help</a>
+                                </li>
+                            </ul>
+                        </div>
                         <div class="mx-auto order-0">
-                            <a class="logo" href="/static/images/ionbot_nb.png">
+                            <a class="logo" href="/static/images/ionbot_nb.png" style="margin-right:0px;">
                                 <img src="/static/images/ionbot_nb.png" height="96" class="logo-light-mode" alt="">
                             </a>
-            
+                        </div>
+                        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item">
+                                    <div class="buy-button">
+                                        <a href="https://1.envato.market/4n73n" target="_blank" class="btn btn-primary">Search Now</a>
+                                    </div><!--end login button-->
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </nav>
             </div> 
         </header><!--end header-->
         <!-- Navbar End -->
-
-        <!-- Hero Start -->
-        <section class="bg-half-170 d-table w-100">
+        <section class="section">
             <div class="container">
-                <div class="row mt-5 align-items-center">
-                    <div class="col-lg-7 col-md-7">
-                        <div class="title-heading me-lg-4">
-                            <p>To connect ionbot.tableau to your ionbot Tableau result file,<br><b>please enter the folder that contains your spectrum file(s)</b>,<br>
-                            and then click <b>Set Folder</b>.</p>
 
-                            {% if response %}
-                            <br>
-                            <div class="alert alert-success" role="alert">
-                                Selected Folder: {{ response }}
-                            </div>
-                            {% endif %}
-        
-                            <form action = "http://localhost:5000/setfolder" method = "POST" 
-                            enctype = "multipart/form-data">
-                            <input name = "folder" class="form-control"/>
-                            <br>
-                            <input type = "submit"  class="btn btn-primary" value="Set Folder"/>
-                         </form> 
-                        </div>
-                    </div><!--end col-->
-                    <div class="col-lg-5 col-md-5 mt-4 pt-2 mt-sm-0 pt-sm-0">
-                        <img src="/static/landrick/images/illustrator/Startup_SVG.svg" alt="">
-                    </div><!--end col-->
-                </div><!--end row-->
-            </div><!--end container-->
-        </section><!--end section-->
-        <!-- Hero End -->
+        <div class="p-4 border-bottom">
+            <h5 class="title mb-0" style="text-align: center;"> [.tableau] </h5>
+        </div>
+        <div class="row mt-5 align-items-center">
+            <div class="col-lg-7 col-md-7">
+                <div class="title-heading me-lg-4">
+                    <p>To connect ionbot.tableau to your ionbot Tableau result file,<br><b>please enter the folder that contains your spectrum file(s)</b>,<br>
+                    and then click <b>Set Folder</b>.</p>
 
+                    {% if response %}
+                    <br>
+                    <div class="alert {{ state }}" role="alert">
+                        {{ response }}
+                    </div>
+                    {% endif %}
 
+                    <form action = "http://localhost:5000/setfolder" method = "POST" 
+                    enctype = "multipart/form-data">
+                    <input name = "folder" class="form-control"/>
+                    <br>
+                    <input type = "submit"  class="btn btn-primary" value="Set Folder"/>
+                 </form> 
+                </div>
+            </div><!--end col-->
+            <div class="col-lg-5 col-md-5 mt-4 pt-2 mt-sm-0 pt-sm-0">
+                <img src="/static/landrick/images/illustrator/Startup_SVG.svg" alt="">
+            </div><!--end col-->
+        </div><!--end row-->
+
+    </div>
+
+</section>
 
         <!-- FAQ n Contact Start -->
         <section class="section bg-light">
@@ -217,6 +239,5 @@
         <!-- Main Js -->
         <script src="/static/landrick/js/plugins.init.js"></script><!--Note: All init js like tiny slider, counter, countdown, maintenance, lightbox, gallery, swiper slider, aos animation etc.-->
         <script src="/static/landrick/js/app.js"></script><!--Note: All important javascript like page loader, menu, sticky menu, menu-toggler, one page menu etc. -->
-        <script type="text/javascript" src="/static/mdboostrap/js/mdb.min.js"></script>
     </body>
 </html>
