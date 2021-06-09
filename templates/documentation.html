@@ -483,7 +483,81 @@
                         </div><!--end teb pane-->
 
                         <div class="tab-pane fade" id="pills-apps" role="tabpanel" aria-labelledby="pills-apps-tab">
-                            <p class="text-muted mb-0">You can combine all the Landrick templates into a single one, you can take a component from the Application theme and use it in the Website.</p>                       
+
+                            <h3>Tableau result file (.twbx)</h3>
+                            <p>
+                                The Tableau results file (.twbx) can be opened with the free Tableau Reader software that is available for Windows and Mac. This Tableau result file only shows matches against the target database that were identified at 1% FDR. Note that the ionbot .csv result files contain all identifications at 5% FDR, including matches against the decoy database.
+                            </p>
+                            <p>The results are presented in different dashboards that can be selected from the tabs at the bottom:</p>
+                            <p><img src="/static/images/tableau1.png" class="rounded mx-auto d-block" height=40 alt=""></p>
+                            <p><ul>
+                                <li><b>General</b> shows search settings and general identification statistics</li> 
+                                <li><b>PSMs</b> provides detailed lists of identified proteins, peptides and PSMs</li> 
+                                <li><b>Modifications</b> provides detailed lists of peptide modifications</li>
+                                <li><b>PSM Scores</b> plots different PSM feature values</li>
+                                <li><b>LC Retention Time</b> shows LC-MS details</li>
+                            </ul></p>
+                            <div class="row">
+                                <div class="col-8">
+                                <p>
+                                In each dashboard, one or more PSMs can be selected by clicking on the fields. Multiple PSMs can be selected using CTRL-click or SHIFT-click. In some dashboards, right-clicking a selection shows actions at bottom of the right-click menu.
+                                </p>
+                                <p>
+                                    These provide additional information about the selected PSMs (see below). 
+                                </p>
+                                <p>All the information for selected PSMs can be copied with CTRL-C, from which they can be pasted in any text editor or spreadsheet.</p>
+                                <p>The following explains each dashboard in detail. </p>
+                                </div> 
+                                <div class="col-4" >
+                                    <p><img src="/static/images/tableau2.png" class="rounded mx-auto d-block" height=240 alt=""></p>
+                                </div>
+                            </div>
+
+                            <h3>PSMs dashboard</h3>
+                            <p>This is the main dashboard that is presented when opening the Tableau result file. It consist of three sheets listing protein groups, peptides and PSMs.</p>
+                            <p>At the right is a filter section that allows for selecting specific identifications:</p> 
+                               <ul>
+                                <li><b>protein groups computed from</b> only affects the Proteins sheet and allows switching between protein groups computed from using all co-eluting PSMs and groups computed from first-ranked PSMs only</li>
+                                    <li><b>is shared</b> filters for peptides shared between protein groups (note that for the Proteins sheet this only affects the statistics presented for each protein group, not the protein groups themselves as these were computed from non-shared peptides only)</li> 
+                                        <li><b>PSM rank</b> that can be used to  show statistics for first-ranked or lower-ranked PSMs only</li> 
+                                            <li><b>contaminant</b> that can be used to only show matches against contaminant proteins,</li> 
+                                                <li><b>protein_group</b> is a (wildcard) text filter to find a specific protein (group, as protein groups are named after the proteins they contain (separated by ‘__’))</li> 
+                                                    <li><b>protein_description</b> is a (wildcard) text filter to find proteins based on their UniProt description (which is shown when hoovering over a bar in the “Proteins” sheet)</li> 
+                                                        <li><b>matched peptide</b> is a (wildcard) filter to find specific peptide sequences</li> 
+                                                            <li><b>modifications</b> is a (wildcard) filter to find PSMs with specific modifications</li>
+                            </ul>
+                            <p>The <b>Proteins sheet</b> lists all identified protein groups. These are named after the proteins they contain separated by ‘__’. Clicking a protein group selects all corresponding peptides in the Peptides sheet (see below). This can be deselected by clicking the protein group name gain (or by clicking the back arrow). For each protein, the number of corresponding PSMs, unique peptides and different unexpected modifications is shown as bars. Proteins can be ranked based on these statistics by clicking the sort button that appears while hoovering over the name of the statistic:</p>
+                            <p><img src="/static/images/tableau3.png" class="rounded mx-auto d-block" height=48 alt=""></p>
+                            <p>While hoovering over the protein groups, a [+] button appears that adds an additional column to the sheet that contains the UniProt identifiers of the proteins in the protein groups:</p>
+                            <p><img src="/static/images/tableau4.png" class="rounded mx-auto d-block" height=48 alt=""></p>
+                            <p>Note that this expansion disables the ranking of the protein groups, which is enabled again using the [-] button.</p>
+                            <p><b>Actions</b></p>
+                            <p><img src="/static/images/tableau5.png" height=100 alt=""></p>
+                            <p>The first three actions apply to one UniProt identifier only and show additional protein information in a new tab in your default browser. The fourth action applies to multiple selected UniProt identifiers and shows all PSMs from the selected identifiers in the Modifications dashboard (see below).</p>
+                            <p>The <b>Peptides sheet</b> lists all identified peptide sequences. Peptides shared between protein groups have yellow bars for the statistics. Note that for an identified peptide it is possible that the corresponding protein group(s) is not identified. These are indicated with orange bars. Peptides can be ranked based on the statistics presented by clicking the sort button that appears while hoovering over the name of the statistic. </p>
+                            <p><b>Actions</b></p>
+                            <p><img src="/static/images/tableau6.png" height=44 alt=""></p>
+                            <p>This actions applies to all selected peptides and shows the corresponding protein groups in the Proteins sheet.</p>
+                            <p>The <b>PSMs sheet</b> shows all identified PSMs for the peptides selected in the Peptides sheet. Lower-ranked PSMs are indicated by green bars for the statistics.</p>
+                            <p><b>Actions</b></p>
+                            <p><img src="/static/images/tableau7.png" height=80 alt=""></p>
+                            <p>The first two actions apply to one or more selected PSMs. They will highlight the selected PSMs in the LC Retention Time or PSM Scores dashboard (see below). Once highlighted you can view these PSMs in the context of all identified PSMs by going to the corresponding dashboard using the tabs at the bottom.</p>
+                            <p>The third action can be selected for one PSM only (by right clicking one of the statistics bars). It will show the MS2 spectrum annotation in a new tab in your browser. Note that you need to have the ionbot.tableau server running to view the annotations. </p>
+                            <h3>Modifications dashboard</h3>
+                            <p>This dashboard allows you to view your ionbot search results from a protein modifications perspective. </p>
+                            <p>The <b>Modifications sheet</b> lists all identified protein modifications. These can be ranked based on the statistics. Selecting one or more modifications shows all proteins carrying these modifications in the Proteins sheet. Selecting a protein in the Proteins sheet shows the location of the selected modifications in the selected protein in the Location sheet. </p>
+                            <p><b>Actions</b></p>
+                            <p><img src="/static/images/tableau8.png" height=40 alt=""></p>
+                            <p>This action applies to one PSM in the Location dashboard and can be selected by right-clicking a bar in that dashboard. It will show the MS2 spectrum annotation in a new tab in your browser. Note that you need to have the ionbot.tableau server running to view the annotations. </p>
+                            <h3>PSM Scores dashboard</h3>
+                            <p>These are four sheets that plot PSM score against different types of matching information used in the ionbot PSM scoring function. All sheets are linked, i.e. selecting PSMs in one sheet will show the selection in the other sheets as well. </p>
+                            <p>The filter in the plane on the right allow for selecting (and comparing) different fractions (runs).</p>
+                            <h3>LC Retention Time dashboard </h3>
+                            <p>These are two sheets that plot observed retention time against observed MS1 precursor mass and corrected retention time against the DeepLC predicted retention time. Both sheets are linked, i.e. selecting PSMs in one sheet will show the selection in the other sheet as well. </p>
+                            <p>The filter in the plane on the right allow for selecting (and comparing) different fractions (runs).  </p>
+                            <h3>General dashboard </h3>
+                            <p>This dashboard lists general search setting information and general statistics about the ionbot search identification counts. </p>
+
                         </div><!--end teb pane-->
                     </div><!--end tab content-->
                 </div><!--end col-->
