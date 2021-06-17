@@ -20,23 +20,11 @@ def get_spectrum_with_mgf(mgf_file, title):
         spectrum_s.append([float(x), float(y)])
     return spectrum_s, charge, pepmass
 
-# Here the "matched_peptide" and "modifications" columns
-# in the ionbot result file are passed to create the data
-# for the varMods javascript variable
-def get_varmods(peptide, modifications, deltas):
-    tmp = x.split("|")
-    #check ragging to correct modification positions
-    rag = 0
-    for i in range(0,len(x),2):
-        if tmp[i+1] == "ragging": 
-            rag = int(tmp[i])
-    mods = []
-    for i in range(0,len(x),2):
-        if tmp[i] == "x": 
-            continue #unlocalized
-        if not tmp[i+1].startswith("["):
-            continue #ragging or mutation
-        mod_pos = int(tmp[i])-rag
-        unimod = int(tmp[i+1].split("]")[0][1:])
-        mods.append("{index: %i, modMass: %f, aminoAcid: '%s'}"%(mod_pos,deltas[unimod],peptide[mod_pos-1]))
-    return mods
+def get_varmods(sequence, modifications):
+    if modifications == "0|":
+        return "[]"
+    mods = "["
+    tmp = modifications.split("|")
+    for i in range(0,len(tmp),2):
+        mods += "{index: %s, modMass: %s, aminoAcid: '%s'}"%(tmp[i],tmp[i+1],sequence[int(tmp[i])-1])
+    return mods + "]"

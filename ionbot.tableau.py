@@ -11,15 +11,6 @@ from flask.templating import render_template
 
 mgf_file_dir = ""
 
-def get_varmods(sequence, modifications):
-    if modifications == "0|":
-        return "[]"
-    mods = "["
-    tmp = modifications.split("|")
-    for i in range(0,len(tmp),2):
-        mods += "{index: %s, modMass: %s, aminoAcid: '%s'}"%(tmp[i],tmp[i+1],sequence[int(tmp[i])-1])
-    return mods + "]"
-
 template_folder = ''
 if getattr(sys, 'frozen', False):
     template_folder = os.path.join(sys._MEIPASS, 'templates')
@@ -41,14 +32,6 @@ def tableau():
     else:
         res = "Tableau is connected to folder '%s'."%mgf_file_dir
         return render_template('tableau.html',response=res,state="alert-success")
-
-@app.route('/landing')
-def landing():
-    return render_template('landing.html')
-
-@app.route('/documentation')
-def documentation():
-    return render_template('documentation.html')
 
 @app.route('/setfolder', methods = ['GET', 'POST'])
 def setfolder():
