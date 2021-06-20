@@ -1,6 +1,6 @@
 import numpy as np
 
-from pyteomics import mgf, auxiliary
+from pyteomics import mgf
 
 # Get spectrum, pepmass and charge using pyteomics IndexedMGF
 def get_spectrum_with_mgf(mgf_file, title):

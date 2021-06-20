@@ -23,7 +23,7 @@ datas=[],
 with
 
 ```
-datas=[('templates', 'templates'),('static', 'static'),('unimodptms.txt', '.')],
+datas=[('templates', 'templates'),('static', 'static')],
 ```
 
 and compile gain:
