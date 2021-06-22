@@ -1,10 +1,35 @@
-# Lorikeet_spectrum_viewer (https://uwpr.github.io/Lorikeet/)
+# ionbot.tableau
 
-Python script to annotate MS2 spectra from MGF spectrum and ionbot result files.
+The ionbot.tableau local webserver extends the functionality of Tableau Reader specificly for the ionbot result file. It allows you to view MS2 spectrum annotations by providing the full path to the spectrum files that correspond to the ionbot result file.
 
-Example (for Ionbot (https://ionbot.cloud)) output:
+### Windows/Mac
 
-$ python.exe .\script.py .\unimodptms.txt .\Velos005137.mgf "1000.01232910156_4098.94489999998" EAWVIAWEIGTAPIEGEK N
+Please donwload the executable here. Double click will open ionbot.tableau in your default webbrowser. After setting the full path to the spectrum files ionbot.tableau will listen to incomming calls from Tableau Reader.
 
-This generates EAWVIAWEIGTAPIEGEK.html that needs to be run from the cloned folder.   
+### Compilation
 
+Compilation requires PyInstaller. First compile ionbot.tableau.py:
+
+```
+pyinstaller.exe --exclude matplotlib --exclude scipy --exclude pandas  --onefile .\ionbot.tableau.py
+```
+
+Next, open ionbot.tableau.spec and replace
+
+```
+datas=[],
+```
+
+with
+
+```
+datas=[('templates', 'templates'),('static', 'static')],
+```
+
+and compile gain:
+
+```
+pyinstaller.exe --exclude matplotlib --exclude scipy --exclude pandas  --onefile .\ionbot.tableau.spec
+```
+
+The binary is written in the `dist` folder.

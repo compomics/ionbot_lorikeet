@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Landrick - Saas & Software Landing Page Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Premium Bootstrap 5 Landing Page Template" />
+        <meta name="keywords" content="Saas, Software, multi-uses, HTML, Clean, Modern" />
+        <meta name="author" content="Shreethemes" />
+        <meta name="email" content="support@shreethemes.in" />
+        <meta name="website" content="https://shreethemes.in" />
+        <meta name="Version" content="v3.2.0" />
+        <!-- favicon -->
+        <link rel="shortcut icon" href="images/favicon.ico">
+        <!-- Bootstrap -->
+        <link href="/static/landrick/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- Icons -->
+        <link href="/static/landrick/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+        <!-- Slider -->
+        <link rel="stylesheet" href="/static/landrick/css/tiny-slider.css"/>
+        <!-- Main Css -->
+        <link href="/static/landrick/css/style.css" rel="stylesheet" type="text/css" id="theme-opt" />
+        <link href="/static/landrick/css/colors/default.css" rel="stylesheet" id="color-opt">
+        <link rel="stylesheet" href="/static/mdbootstrap/css/mdb.min.css" />
+    </head>
+
+    <body>
+        <!-- Loader -->
+        <!-- <div id="preloader">
+            <div id="status">
+                <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                </div>
+            </div>
+        </div> -->
+        <!-- Loader -->
+        
+        <!-- Navbar STart -->
+        <header id="topnav" class="defaultscroll sticky">
+            <div class="container">
+                <!-- Logo container-->
+                <a class="logo" href="/static/images/ionbot_nb.png">
+                    <img src="/static/images/ionbot_nb.png" height="120" style="margin-left:-10px" class="logo-light-mode" alt="">
+                </a>
+                <div class="buy-button" style="padding-top:5px">
+                    <a href="https://1.envato.market/4n73n" target="_blank" class="btn btn-primary">Search Now</a>
+                </div><!--end login button-->
+                <!-- End Logo container-->
+                <div class="menu-extras">
+                    <div class="menu-item">
+                        <!-- Mobile menu toggle-->
+                        <a class="navbar-toggle" id="isToggle" onclick="toggleMenu()">
+                            <div class="lines">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </a>
+                        <!-- End mobile menu toggle-->
+                    </div>
+                </div>
+        
+                <div id="navigation">
+                    <!-- Navigation Menu-->   
+                    <ul class="navigation-menu" style="margin-top:16px;padding-top:20px">
+                        <li><a href="index.html" class="sub-menu-item">Home</a></li>       
+                        <li class="has-submenu parent-parent-menu-item">
+                            <a href="javascript:void(0)">Pages</a><span class="menu-arrow"></span>
+                            <ul class="submenu">
+                                <li class="has-submenu parent-menu-item"><a href="javascript:void(0)"> Company </a><span class="submenu-arrow"></span>
+                                    <ul class="submenu">
+                                        <li><a href="page-aboutus.html" class="sub-menu-item"> About Us</a></li>
+                                        <li><a href="page-aboutus-two.html" class="sub-menu-item"> About Us Two </a></li>
+                                        <li><a href="page-services.html" class="sub-menu-item">Services</a></li>
+                                        <li><a href="page-history.html" class="sub-menu-item">History </a></li>
+                                        <li><a href="page-team.html" class="sub-menu-item"> Team</a></li>
+                                        <li><a href="page-pricing.html" class="sub-menu-item">Pricing</a></li>
+                                    </ul> 
+                                </li>
+                                <li class="has-submenu parent-menu-item"><a href="javascript:void(0)"> Account </a><span class="submenu-arrow"></span>
+                                    <ul class="submenu">
+                                        <li><a href="account-profile.html" class="sub-menu-item">Profile</a></li>
+                                        <li><a href="account-members.html" class="sub-menu-item">Members </a></li>
+                                        <li><a href="account-works.html" class="sub-menu-item">Works </a></li>
+                                        <li><a href="account-messages.html" class="sub-menu-item">Messages </a></li>
+                                        <li><a href="account-payments.html" class="sub-menu-item">Payments </a></li>
+                                        <li><a href="account-setting.html" class="sub-menu-item">Setting</a></li>
+                                        <li><a href="page-invoice.html" class="sub-menu-item">Invoice</a></li>
+                                    </ul>  
+                                </li>
+                                <li class="has-submenu parent-menu-item"><a href="javascript:void(0)"> Shop</a><span class="submenu-arrow"></span>
+                                    <ul class="submenu">
+                                        <li><a href="shop-grids.html" class="sub-menu-item">Product Grids</a></li>
+                                        <li><a href="shop-lists.html" class="sub-menu-item">Product List</a></li>
+                                        <li><a href="shop-product-detail.html" class="sub-menu-item">Product Details</a></li>
+                                        <li><a href="shop-cart.html" class="sub-menu-item">Shop Cart</a></li>
+                                        <li><a href="shop-checkouts.html" class="sub-menu-item">Checkouts</a></li>
+                                        <li><a href="shop-myaccount.html" class="sub-menu-item">My Account</a></li>
+                                    </ul>  
+                                </li>
+                                <li class="has-submenu parent-menu-item"><a href="javascript:void(0)"> Help center </a><span class="submenu-arrow"></span>
+                                    <ul class="submenu">
+                                        <li><a href="helpcenter-overview.html" class="sub-menu-item">Helpcenter</a></li>
+                                        <li><a href="helpcenter-faqs.html" class="sub-menu-item">Faqs</a></li>
+                                        <li><a href="helpcenter-guides.html" class="sub-menu-item">Guides</a></li>
+                                        <li><a href="helpcenter-support-request.html" class="sub-menu-item">Support Call</a></li>
+                                    </ul>  
+                                </li>
+                                <li class="has-submenu parent-menu-item"><a href="javascript:void(0)"> Forums </a><span class="submenu-arrow"></span>
+                                    <ul class="submenu">
+                                        <li><a href="forums.html" class="sub-menu-item">Overview </a></li>
+                                        <li><a href="forums-topic.html" class="sub-menu-item">Forum Topic </a></li>
+                                        <li><a href="forums-comments.html" class="sub-menu-item">Forum Comments </a></li>
+                                    </ul>  
+                                </li>
+                                <li class="has-submenu parent-menu-item"><a href="javascript:void(0)"> Email Template</a><span class="submenu-arrow"></span>
+                                    <ul class="submenu">
+                                        <li><a href="email-confirmation.html" class="sub-menu-item">Confirmation</a></li>
+                                        <li><a href="email-password-reset.html" class="sub-menu-item">Reset Password</a></li>
+                                        <li><a href="email-alert.html" class="sub-menu-item">Alert</a></li>
+                                        <li><a href="email-invoice.html" class="sub-menu-item">Invoice</a></li>
+                                    </ul>  
+                                </li>
+                                <li class="has-submenu parent-menu-item"><a href="javascript:void(0)">Careers</a><span class="submenu-arrow"></span>
+                                    <ul class="submenu">
+                                        <li><a href="page-jobs.html" class="sub-menu-item">Jobs</a></li>
+                                        <li><a href="page-jobs-sidebar.html" class="sub-menu-item">Jobs - Sidebar</a></li>
+                                        <li><a href="page-job-detail.html" class="sub-menu-item">Job Detail</a></li>
+                                        <li><a href="page-job-apply.html" class="sub-menu-item">Job Apply</a></li>
+                                        <li><a href="page-job-company-list.html" class="sub-menu-item">Company Listing</a></li>
+                                        <li><a href="page-job-company.html" class="sub-menu-item">Company Detail</a></li>
+                                        <li><a href="page-job-candidate-list.html" class="sub-menu-item">Candidate Listing</a></li>
+                                        <li><a href="page-job-candidate.html" class="sub-menu-item">Candidate Detail</a></li>
+                                    </ul>  
+                                </li>
+                                <li class="has-submenu parent-menu-item"><a href="javascript:void(0)"> Blog </a><span class="submenu-arrow"></span>
+                                    <ul class="submenu">
+                                        <li><a href="page-blog-grid.html" class="sub-menu-item">Blog Grid</a></li>
+                                        <li><a href="page-blog-sidebar.html" class="sub-menu-item">Blog with Sidebar</a></li>
+                                        <li><a href="page-blog-list.html" class="sub-menu-item">Blog Listing</a></li>
+                                        <li><a href="page-blog-list-sidebar.html" class="sub-menu-item">Blog List & Sidebar</a></li>
+                                        <li><a href="page-blog-detail.html" class="sub-menu-item">Blog Detail</a></li>
+                                        <li><a href="page-blog-detail-two.html" class="sub-menu-item">Blog Detail 2 </a></li>
+                                    </ul>  
+                                </li>
+                                <li class="has-submenu parent-menu-item"><a href="javascript:void(0)"> Case Study </a><span class="submenu-arrow"></span>
+                                    <ul class="submenu">
+                                        <li><a href="page-cases.html" class="sub-menu-item">All Cases </a></li>
+                                        <li><a href="page-case-detail.html" class="sub-menu-item">Case Detail </a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-submenu parent-menu-item"><a href="javascript:void(0)"> Auth Pages</a><span class="submenu-arrow"></span>
+                                    <ul class="submenu">
+                                        <li><a href="auth-login.html" class="sub-menu-item">Login</a></li>
+                                        <li><a href="auth-cover-login.html" class="sub-menu-item">Login Cover</a></li>
+                                        <li><a href="auth-login-three.html" class="sub-menu-item">Login Simple</a></li>
+                                        <li><a href="auth-signup.html" class="sub-menu-item">Signup</a></li>
+                                        <li><a href="auth-cover-signup.html" class="sub-menu-item">Signup Cover</a></li>
+                                        <li><a href="auth-signup-three.html" class="sub-menu-item">Signup Simple</a></li>
+                                        <li><a href="auth-re-password.html" class="sub-menu-item">Reset Password</a></li>
+                                        <li><a href="auth-cover-re-password.html" class="sub-menu-item">Reset Password Cover</a></li>
+                                        <li><a href="auth-re-password-three.html" class="sub-menu-item">Reset Password Simple</a></li>
+                                    </ul>  
+                                </li>
+                                <li class="has-submenu parent-menu-item"><a href="javascript:void(0)"> Utility </a><span class="submenu-arrow"></span>
+                                    <ul class="submenu">
+                                        <li><a href="page-terms.html" class="sub-menu-item">Terms of Services</a></li>
+                                        <li><a href="page-privacy.html" class="sub-menu-item">Privacy Policy</a></li>
+                                    </ul>  
+                                </li>
+                                <li class="has-submenu parent-menu-item"><a href="javascript:void(0)"> Special</a><span class="submenu-arrow"></span>
+                                    <ul class="submenu">
+                                        <li><a href="page-comingsoon.html" class="sub-menu-item">Coming Soon</a></li>
+                                        <li><a href="page-comingsoon2.html" class="sub-menu-item">Coming Soon Two</a></li>
+                                        <li><a href="page-maintenance.html" class="sub-menu-item">Maintenance</a></li>
+                                        <li><a href="page-error.html" class="sub-menu-item">Error</a></li>
+                                        <li><a href="page-thankyou.html" class="sub-menu-item">Thank you</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-submenu parent-menu-item"><a href="javascript:void(0)"> Contact </a><span class="submenu-arrow"></span>
+                                    <ul class="submenu">
+                                        <li><a href="page-contact-detail.html" class="sub-menu-item">Contact Detail</a></li>
+                                        <li><a href="page-contact-one.html" class="sub-menu-item">Contact One</a></li>
+                                        <li><a href="page-contact-two.html" class="sub-menu-item">Contact Two</a></li>
+                                        <li><a href="page-contact-three.html" class="sub-menu-item">Contact Three</a></li>
+                                    </ul>  
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="has-submenu parent-menu-item">
+                            <a href="javascript:void(0)">Docs</a><span class="menu-arrow"></span>
+                            <ul class="submenu">
+                                <li><a href="documentation.html" class="sub-menu-item">Documentation</a></li>
+                                <li><a href="changelog.html" class="sub-menu-item">Changelog</a></li>
+                                <li><a href="components.html" class="sub-menu-item">Components</a></li>
+                                <li><a href="widget.html" class="sub-menu-item">Widget</a></li>
+                            </ul>
+                        </li>
+                    </ul><!--end navigation menu-->
+                    <div class="buy-menu-btn d-none">
+                        <a href="https://1.envato.market/4n73n" target="_blank" class="btn btn-primary">Search Now</a>
+                    </div><!--end login button-->
+                </div><!--end navigation-->
+            </div><!--end container-->
+        </header><!--end header-->
+        <!-- Navbar End -->
+
+         <!-- Hero Start -->
+         <section class="bg-half-170 d-table w-100">
+            <div class="container">
+                <div class="row mt-5 align-items-center">
+                    <div class="col-lg-5 col-md-5 mt-4 pt-2 mt-sm-0 pt-sm-0">
+                        Hello
+                    </div><!--end col-->
+
+                    <div class="col-lg-7 col-md-7">
+                        <div class="title-heading me-lg-4">
+                            <label class="form-label" for="customFile">Default file input example</label>
+                            <input type="file" class="form-control" id="customFile" />
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- Hero End -->
+
+        <!-- Partners start -->
+        <section class="py-4 border-bottom border-top">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-2 col-md-2 col-6 text-center py-4">
+                        <img src="images/client/amazon.svg" class="avatar avatar-ex-sm" alt="">
+                    </div><!--end col-->
+
+                    <div class="col-lg-2 col-md-2 col-6 text-center py-4">
+                        <img src="images/client/google.svg" class="avatar avatar-ex-sm" alt="">
+                    </div><!--end col-->
+                    
+                    <div class="col-lg-2 col-md-2 col-6 text-center py-4">
+                        <img src="images/client/lenovo.svg" class="avatar avatar-ex-sm" alt="">
+                    </div><!--end col-->
+                    
+                    <div class="col-lg-2 col-md-2 col-6 text-center py-4">
+                        <img src="images/client/paypal.svg" class="avatar avatar-ex-sm" alt="">
+                    </div><!--end col-->
+                    
+                    <div class="col-lg-2 col-md-2 col-6 text-center py-4">
+                        <img src="images/client/shopify.svg" class="avatar avatar-ex-sm" alt="">
+                    </div><!--end col-->
+                    
+                    <div class="col-lg-2 col-md-2 col-6 text-center py-4">
+                        <img src="images/client/spotify.svg" class="avatar avatar-ex-sm" alt="">
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- Partners End -->
+
+        <!-- Footer Start -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
+                        <a href="#" class="logo-footer">
+                            <img src="images/logo-light.png" height="24" alt="">
+                        </a>
+                        <p class="mt-4">Start working with Landrick that can provide everything you need to generate awareness, drive traffic, connect.</p>
+                        <ul class="list-unstyled social-icon foot-social-icon mb-0 mt-4">
+                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="facebook" class="fea icon-sm fea-social"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="instagram" class="fea icon-sm fea-social"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="twitter" class="fea icon-sm fea-social"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="linkedin" class="fea icon-sm fea-social"></i></a></li>
+                        </ul><!--end icon-->
+                    </div><!--end col-->
+                    
+                    <div class="col-lg-2 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                        <h5 class="text-light footer-head">Company</h5>
+                        <ul class="list-unstyled footer-list mt-4">
+                            <li><a href="page-aboutus.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> About us</a></li>
+                            <li><a href="page-services.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Services</a></li>
+                            <li><a href="page-team.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Team</a></li>
+                            <li><a href="page-pricing.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Pricing</a></li>
+                            <li><a href="portfolio-modern-three.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Project</a></li>
+                            <li><a href="page-jobs.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Careers</a></li>
+                            <li><a href="page-blog-grid.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Blog</a></li>
+                            <li><a href="auth-cover-login.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Login</a></li>
+                        </ul>
+                    </div><!--end col-->
+                    
+                    <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                        <h5 class="text-light footer-head">Usefull Links</h5>
+                        <ul class="list-unstyled footer-list mt-4">
+                            <li><a href="page-terms.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Terms of Services</a></li>
+                            <li><a href="page-privacy.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Privacy Policy</a></li>
+                            <li><a href="documentation.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Documentation</a></li>
+                            <li><a href="changelog.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Changelog</a></li>
+                            <li><a href="components.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Components</a></li>
+                        </ul>
+                    </div><!--end col-->
+
+                    <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                        <h5 class="text-light footer-head">Newsletter</h5>
+                        <p class="mt-4">Sign up and receive the latest tips via email.</p>
+                        <form>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="foot-subscribe mb-3">
+                                        <label class="form-label">Write your email <span class="text-danger">*</span></label>
+                                        <div class="form-icon position-relative">
+                                            <i data-feather="mail" class="fea icon-sm icons"></i>
+                                            <input type="email" name="email" id="emailsubscribe" class="form-control ps-5 rounded" placeholder="Your email : " required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="d-grid">
+                                        <input type="submit" id="submitsubscribe" name="send" class="btn btn-soft-primary" value="Subscribe">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </footer><!--end footer-->
+        <footer class="footer footer-bar">
+            <div class="container text-center">
+                <div class="row align-items-center">
+                    <div class="col-sm-6">
+                        <div class="text-sm-start">
+                            <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> Landrick. Design with <i class="mdi mdi-heart text-danger"></i> by <a href="https://shreethemes.in/" target="_blank" class="text-reset">Shreethemes</a>.</p>
+                        </div>
+                    </div><!--end col-->
+
+                    <div class="col-sm-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                        <ul class="list-unstyled text-sm-end mb-0">
+                            <li class="list-inline-item"><a href="javascript:void(0)"><img src="images/payments/american-ex.png" class="avatar avatar-ex-sm" title="American Express" alt=""></a></li>
+                            <li class="list-inline-item"><a href="javascript:void(0)"><img src="images/payments/discover.png" class="avatar avatar-ex-sm" title="Discover" alt=""></a></li>
+                            <li class="list-inline-item"><a href="javascript:void(0)"><img src="images/payments/master-card.png" class="avatar avatar-ex-sm" title="Master Card" alt=""></a></li>
+                            <li class="list-inline-item"><a href="javascript:void(0)"><img src="images/payments/paypal.png" class="avatar avatar-ex-sm" title="Paypal" alt=""></a></li>
+                            <li class="list-inline-item"><a href="javascript:void(0)"><img src="images/payments/visa.png" class="avatar avatar-ex-sm" title="Visa" alt=""></a></li>
+                        </ul>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </footer><!--end footer-->
+        <!-- Footer End -->
+
+        <!-- javascript -->
+        <script src="/static/landrick/js/bootstrap.bundle.min.js"></script>
+        <!-- SLIDER -->
+        <script src="/static/landrick/js/tiny-slider.js "></script>
+        <!-- Icons -->
+        <script src="/static/landrick/js/feather.min.js"></script>
+        <!-- Main Js -->
+        <script src="/static/landrick/js/plugins.init.js"></script><!--Note: All init js like tiny slider, counter, countdown, maintenance, lightbox, gallery, swiper slider, aos animation etc.-->
+        <script src="/static/landrick/js/app.js"></script><!--Note: All important javascript like page loader, menu, sticky menu, menu-toggler, one page menu etc. -->
+        <script type="text/javascript" src="/static/mdbootstrap/js/mdb.min.js"></script>
+    </body>
+</html>
