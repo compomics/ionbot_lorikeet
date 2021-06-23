@@ -28,7 +28,7 @@ def before_first_request():
 def tableau():
     global mgf_file_dir
     if mgf_file_dir == "":
-        return render_template('tableau.html')
+        return render_template('landing.html')
     else:
         res = "Tableau is connected to folder '%s'."%mgf_file_dir
         return render_template('tableau.html',response=res,state="alert-success")
