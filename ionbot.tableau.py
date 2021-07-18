@@ -39,6 +39,9 @@ def setfolder():
    if request.method == 'POST':
       f = request.form['folder']
       mgf_file_dir = f
+      if not os.path.isdir(mgf_file_dir):
+        f = "Could not find '%s'.\nDid you specify the spectrum file(s) folder correctly?"%(mgf_file_dir)
+        return render_template('tableau.html',response=f,state="alert-danger")
       res = "Tableau is connected to folder '%s'."%mgf_file_dir
       return render_template('tableau.html',response=res,state="alert-success")
 

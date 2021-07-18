@@ -7,6 +7,9 @@ def get_spectrum_with_mgf(mgf_file, title):
     # read mgf
     f = mgf.IndexedMGF(mgf_file)
 
+    #TODO: this can be done much better
+    title = title.replace("$",",")
+
     spectrum = f[title]
     mz_array = f[title]['m/z array']
     intensity_array = f[title]['intensity array']
